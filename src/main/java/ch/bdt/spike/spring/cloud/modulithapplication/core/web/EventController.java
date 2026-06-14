@@ -1,6 +1,7 @@
 package ch.bdt.spike.spring.cloud.modulithapplication.core.web;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.jspecify.annotations.Nullable;
 import org.springframework.modulith.events.CompletedEventPublications;
 import org.springframework.modulith.events.EventPublication;
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/core/events")
 @RequiredArgsConstructor
+@Slf4j
 public class EventController {
 
     private final CompletedEventPublications completedEventPublications;
@@ -26,6 +28,7 @@ public class EventController {
 
     @GetMapping("/completed/all")
     public Collection<EventPublicationVO> getCompletedEvents() {
+        log.info("getCompletedEvents");
         return completedEventPublications.findAll().stream()
                 .map(EventPublicationVO::new)
                 .collect(Collectors.toList());
