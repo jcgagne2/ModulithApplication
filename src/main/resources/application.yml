@@ -39,6 +39,12 @@ management:
       otlp:
         enabled: true
 
+  otlp:
+    metrics:
+      export:
+        enabled: false
+
+
   opentelemetry:
     tracing:
       export:
@@ -53,7 +59,6 @@ management:
           endpoint: https://seq.ne.ch/etic/ingest/otlp/v1/logs
           headers:
             X-Seq-ApiKey: s3AHtZIKech5pEQvTA1j
-
 
 
 
