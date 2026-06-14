@@ -7,10 +7,6 @@ import org.springframework.modulith.core.ApplicationModules;
 @SpringBootTest
 class ModulithApplicationTests {
 
-    //@Test
-    //void contextLoads() {
-    //}
-
     @Test
     void testVerifyModules() {
         ApplicationModules vModules = ApplicationModules.of(ModulithApplication.class);
