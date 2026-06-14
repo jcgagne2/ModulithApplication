@@ -1,5 +1,6 @@
 package ch.bdt.spike.spring.cloud.modulithapplication.commande;
 
+import ch.bdt.spike.spring.cloud.modulithapplication.commande.dao.CommandeDAO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationEventPublisher;
@@ -10,12 +11,14 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 @Slf4j
 public class CommandeServiceWithEvent {
+    private final CommandeDAO commandeDAO;
 
     private final ApplicationEventPublisher events;
 
     @Transactional
-    public void complete(Commande aCommande) {
-        log.info("Completing command: " + aCommande);
+    public void complete(Long aCommandeId) {
+        log.info("Completing command {}", aCommandeId);
+        Commande aCommande = commandeDAO.findById(aCommandeId).orElseThrow(() -> new RuntimeException("Commande not found"));
         aCommande.setEtat(EtatCommande.Done);
 
         log.info("Publishing event");

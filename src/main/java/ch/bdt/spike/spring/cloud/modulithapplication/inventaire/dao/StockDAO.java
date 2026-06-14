@@ -10,7 +10,7 @@ public class StockDAO {
     public void save() {
         log.info("Saving stock");
         try {
-            Thread.sleep(2000);
+            Thread.sleep(10 * 1000);
         } catch (InterruptedException aE) {
             throw new RuntimeException(aE);
         }

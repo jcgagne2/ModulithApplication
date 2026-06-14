@@ -1,6 +1,5 @@
 package ch.bdt.spike.spring.cloud.modulithapplication;
 
-import ch.bdt.spike.spring.cloud.modulithapplication.commande.Commande;
 import ch.bdt.spike.spring.cloud.modulithapplication.commande.CommandeServiceWithEvent;
 import io.opentelemetry.api.OpenTelemetry;
 import io.opentelemetry.instrumentation.logback.appender.v1_0.OpenTelemetryAppender;
@@ -30,8 +29,7 @@ public class ModulithApplication {
     //@Bean
     CommandLineRunner run(CommandeServiceWithEvent aCommandeService) {
         return args -> {
-            Commande vCommande = new Commande(10, "Pomme");
-            aCommandeService.complete(vCommande);
+            aCommandeService.complete(1L);
         };
     }
 
