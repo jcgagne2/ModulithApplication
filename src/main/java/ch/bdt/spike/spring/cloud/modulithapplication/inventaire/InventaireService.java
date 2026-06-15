@@ -13,5 +13,12 @@ public class InventaireService {
         if (aCommande.getId() == 2L) {
             throw new RuntimeException("boum");
         }
+
+        try {
+            Thread.sleep(10 * 1000);
+        } catch (InterruptedException aE) {
+            throw new RuntimeException(aE);
+        }
+
     }
 }
