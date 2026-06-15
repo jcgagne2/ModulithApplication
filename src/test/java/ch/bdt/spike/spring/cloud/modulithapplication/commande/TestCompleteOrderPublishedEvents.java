@@ -16,33 +16,15 @@ class TestCompleteOrderPublishedEvents {
 
     @Test
     void testCompleteOrder(PublishedEvents events) {
-        Commande aCommande = new Commande();
-        aCommande.setId(1);
-        aCommande.setProduct("Orange");
-        aCommande.setQuantity(10);
-        aCommande.setEtat(EtatCommande.New);
-        commandeServiceWithEvent.complete(aCommande);
+        commandeServiceWithEvent.complete(1L);
 
         events.ofType(CommandeCompletedEvent.class).forEach(commandeCompletedEvent -> {
             System.out.println(commandeCompletedEvent);
         });
 
-        PublishedEvents.TypedPublishedEvents<CommandeCompletedEvent> vMatching = events.ofType(CommandeCompletedEvent.class)
-                                                                                       .matching(CommandeCompletedEvent::getCommandeId,
-                                                                                                 1L);
+        var vMatching = events.ofType(CommandeCompletedEvent.class).matching(CommandeCompletedEvent::getCommandeId,
+                                                                             1L);
         assertThat(vMatching).hasSize(1);
-    }
-
-    @Test
-    void testCompleteOrderAssertable(AssertablePublishedEvents events) {
-        Commande aCommande = new Commande();
-        aCommande.setId(1);
-        aCommande.setProduct("Orange");
-        aCommande.setQuantity(10);
-        aCommande.setEtat(EtatCommande.New);
-        commandeServiceWithEvent.complete(aCommande);
-
-        assertThat(events).contains(CommandeCompletedEvent.class).matching(CommandeCompletedEvent::getCommandeId, 1L);
     }
 
 }

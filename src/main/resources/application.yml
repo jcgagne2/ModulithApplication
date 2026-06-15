@@ -11,12 +11,12 @@ spring:
     hibernate:
       ddl-auto: create-drop
 
-  modulith:
-    events:
-      completion-mode: ARCHIVE
-      jdbc:
-        schema-initialization:
-          enabled: true
+#  modulith:
+#    events:
+#      completion-mode: ARCHIVE
+#      jdbc:
+#        schema-initialization:
+#          enabled: true
 
 
 server:

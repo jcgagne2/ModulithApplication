@@ -4,7 +4,7 @@ import ch.bdt.spike.spring.cloud.modulithapplication.commande.CommandeCompletedE
 import ch.bdt.spike.spring.cloud.modulithapplication.inventaire.dao.StockDAO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.modulith.events.ApplicationModuleListener;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,7 +13,8 @@ import org.springframework.stereotype.Service;
 public class InventaireServiceWithEvents {
     private final StockDAO stockDAO;
 
-    @ApplicationModuleListener
+    //@ApplicationModuleListener
+    @EventListener
     public void updateStockFor(CommandeCompletedEvent aEvent) {
         log.info("Updating stock for event {}", aEvent);
         if (aEvent.getCommandeId() == 2L) {

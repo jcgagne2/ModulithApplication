@@ -16,8 +16,8 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-@RestController
-@RequestMapping("/core/events")
+//@RestController
+//@RequestMapping("/core/events")
 @RequiredArgsConstructor
 @Slf4j
 public class EventController {

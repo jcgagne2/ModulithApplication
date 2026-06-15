@@ -1,0 +1,9 @@
+GET http://localhost:8080/core/events/completed/all
+###
+
+GET http://localhost:8080/core/events/completed/clear
+###
+
+GET http://localhost:8080/core/events/incomplete/resubmit
+
+###
