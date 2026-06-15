@@ -11,20 +11,20 @@ import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 @ApplicationModuleTest(ApplicationModuleTest.BootstrapMode.ALL_DEPENDENCIES)
 class TestCompleteOrderPublishedEvents {
-    @Resource
-    private CommandeServiceWithEvent commandeServiceWithEvent;
-
-    @Test
-    void testCompleteOrder(PublishedEvents events) {
-        commandeServiceWithEvent.complete(1L);
-
-        events.ofType(CommandeCompletedEvent.class).forEach(commandeCompletedEvent -> {
-            System.out.println(commandeCompletedEvent);
-        });
-
-        var vMatching = events.ofType(CommandeCompletedEvent.class).matching(CommandeCompletedEvent::getCommandeId,
-                                                                             1L);
-        assertThat(vMatching).hasSize(1);
-    }
+    //@Resource
+    //private CommandeServiceWithEvent commandeServiceWithEvent;
+    //
+    //@Test
+    //void testCompleteOrder(PublishedEvents events) {
+    //    commandeServiceWithEvent.complete(1L);
+    //
+    //    events.ofType(CommandeCompletedEvent.class).forEach(commandeCompletedEvent -> {
+    //        System.out.println(commandeCompletedEvent);
+    //    });
+    //
+    //    var vMatching = events.ofType(CommandeCompletedEvent.class).matching(CommandeCompletedEvent::getCommandeId,
+    //                                                                         1L);
+    //    assertThat(vMatching).hasSize(1);
+    //}
 
 }

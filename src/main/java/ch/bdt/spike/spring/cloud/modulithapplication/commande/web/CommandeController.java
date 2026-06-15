@@ -1,7 +1,6 @@
 package ch.bdt.spike.spring.cloud.modulithapplication.commande.web;
 
 import ch.bdt.spike.spring.cloud.modulithapplication.commande.CommandeService;
-import ch.bdt.spike.spring.cloud.modulithapplication.commande.CommandeServiceWithEvent;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
